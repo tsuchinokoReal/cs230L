@@ -1,20 +1,27 @@
-import "bootstrap/dist/css/bootstrap.css";
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
-class Contact extends HTMLElement {
-  constructor() {
-    super();
+function Contact() {
+  return (
+    <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
 
-    const shadow = this.attachShadow({ mode: 'open' });
-
-    const div = document.createElement('div');
-    div.innerHTML = '<form class="form-inline">  <div class="form-group mx-sm-3 mb-2"><label for="inputPassword2" class="sr-only">Email</label><input type="password" class="form-control" id="inputPassword2" placeholder="Email"></div><button type="submit" class="btn btn-primary mb-2">Send Email</button></form>';
-
-    shadow.appendChild(div);
-  }
+      <Form.Group className="mb-3" controlId="textForm">
+        <Form.Label>Questions</Form.Label>
+        <Form.Control type="text" placeholder="text" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
+  )
 }
-customElements.define('contact-me', Contact);
+
+export default Contact
